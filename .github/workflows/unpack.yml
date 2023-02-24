@@ -8,11 +8,14 @@ on:
       Version:
         description: 'Add Version'
         required: true
+      Token:
+        description: 'Add Github Token'
+        required: true
 
 env:
   LINK: ${{ github.event.inputs.Link }}
   VERSION: ${{ github.event.inputs.Version }}
-  GH_TOKEN: ${{ secrets.Gh_Token }}
+  GH_TOKEN: ${{ github.event.inputs.Token }}
 
 jobs:
   test:
@@ -20,4 +23,4 @@ jobs:
 
     steps:
        - name: Recovery Boot IMG Unpacker
-         uses: RecoveryDump/unpacker@master
+         uses: BNLOS/unpacker@main
